@@ -81,19 +81,7 @@ gaiad config node tcp://localhost:${GAIA_PORT}657
 ```bash
 gaiad config keyring-backend file
 ```
-# Cosmovisor
-```bash
-go install github.com/cosmos/cosmos-sdk/cosmovisor/cmd/cosmovisor@v0.1.0
-cd go/bin
-chmod +x cosmovisor && mv ./cosmovisor /usr/local/bin/cosmovisor
-```
-```bash
-mkdir -p ~/.gaia/cosmovisor/genesis/bin/ && \
-echo "{}" > ~/.gaia/cosmovisor/genesis/upgrade-info.json
-```
-```bash
-cp /usr/local/bin/gaiad $HOME/.gaia/cosmovisor/genesis/bin/gaiad
-```
+
 ## Init app
 
 ```bash
@@ -173,29 +161,7 @@ LimitNOFILE=65535
 WantedBy=multi-user.target
 EOF
 ```
-Cosmovisor
-```bash
-sudo tee <<EOF > /dev/null /etc/systemd/system/gaiad.service
-[Unit]
-Description=Fire-Starter
-After=network-online.target
 
-[Service]
-User=$USER
-ExecStart=$(which cosmovisor) start --x-crisis-skip-assert-invariants
-Restart=on-failure
-RestartSec=3
-LimitNOFILE=infinity
-
-Environment="DAEMON_HOME=$HOME/.gaia"
-Environment="DAEMON_NAME=gaiad"
-Environment="DAEMON_ALLOW_DOWNLOAD_BINARIES=true"
-Environment="UNSAFE_SKIP_BACKUP=true"
-
-[Install]
-WantedBy=multi-user.target
-EOF
-```
 
 
 ## Register and start service
