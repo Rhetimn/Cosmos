@@ -142,7 +142,7 @@ sed -i -e "s/prometheus = false/prometheus = true/" $HOME/.gaia/config/config.to
 ```bash
 gaiad unsafe-reset-all --home $HOME/.gaia 
 ```
-# Service
+# Service.
 
 ```bash
 sudo tee /etc/systemd/system/gaiad.service > /dev/null <<EOF
