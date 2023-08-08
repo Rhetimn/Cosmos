@@ -132,12 +132,12 @@ sed -i -e "s/^pruning-interval *=.*/pruning-interval = \"$pruning_interval\"/" $
 sed -E -i 's/minimum-gas-prices = \".*\"/minimum-gas-prices = \"0.00uatom\"/' $HOME/.gaia/config/app.toml
 ```
 
-## Prometheus
+## Prometheus.
 
 ```bash
 sed -i -e "s/prometheus = false/prometheus = true/" $HOME/.gaia/config/config.toml
 ```
-## Reset chain data
+## Reset chain data.
 
 ```bash
 gaiad unsafe-reset-all --home $HOME/.gaia 
