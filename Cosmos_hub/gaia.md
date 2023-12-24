@@ -22,11 +22,11 @@ go version
 ```bash
 NODENAME=Do_not_copypaste
 ```
-## Make your custom ports. You can chose from 10 to 65
+## Make your custom ports. You can chose from 10 to 65.
 ```bash
 GAIA_PORT=35
 ```
-## Save and import variables
+## Save and import variables.
 
 ```bash
 echo "export NODENAME=$NODENAME" >> $HOME/.bash_profile
@@ -37,7 +37,7 @@ echo "export GAIA_CHAIN_ID=cosmoshub-4" >> $HOME/.bash_profile
 echo "export GAIA_PORT=${GAIA_PORT}" >> $HOME/.bash_profile
 source $HOME/.bash_profile
 ```
-## Binaries
+## Binaries.
 
 ```bash
 cd $HOME
